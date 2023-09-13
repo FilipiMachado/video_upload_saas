@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { FileVideo, Github } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -27,8 +27,15 @@ export function App() {
       <main className="flex flex-1 p-6 gap-6">
         <div className="flex flex-col flex-1 gap-4">
           <div className="grid grid-rows-2 gap-4 flex-1">
-            <Textarea className="border-sm resize-none p-4 leading-relaxed" placeholder="Inclua o prompt para a IA..."/>
-            <Textarea className="border-sm resize-none p-4 leading-relaxed" placeholder="Resultado gerado pela IA..." readOnly/>
+            <Textarea
+              className="border-sm resize-none p-4 leading-relaxed"
+              placeholder="Inclua o prompt para a IA..."
+            />
+            <Textarea
+              className="border-sm resize-none p-4 leading-relaxed"
+              placeholder="Resultado gerado pela IA..."
+              readOnly
+            />
           </div>
 
           <p className="text-sm text-muted-foreground">
@@ -41,8 +48,31 @@ export function App() {
           </p>
         </div>
 
-        <aside className="w-80 border border-slate-800">
-          2
+        <aside className="w-80 border border-slate-800 space-y-6">
+          <form action="space-y-6">
+            <label
+              htmlFor="video"
+              className="border flex rounded-md aspect-video cursor-pointer border-dashed text-sm flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/80 transition"
+            >
+              <FileVideo className="w-6 h-6"/>
+              Upload video
+            </label>
+
+            <input
+              type="file"
+              id="video"
+              accept="video/mp4"
+              className="sr-only"
+            />
+
+            <Separator />
+
+            <div className="space-y-1">
+
+            </div>
+          </form>
+
+          <form action="">2</form>
         </aside>
       </main>
     </div>
