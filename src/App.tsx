@@ -25,15 +25,18 @@ export function App() {
 
       <main className="flex flex-1 p-6 gap-6">
         <div className="flex flex-col flex-1 gap-4">
-          <div className="grid grid-rows-2 gap-4 flex-1">
-            1
-          </div>
+          <div className="grid grid-rows-2 gap-4 flex-1">1</div>
 
-          <p>
-            Lembre-se: voce pode utilizar a variavel transcription no seu prompt
-            para adicionar o conteudo da transcrição do seu video selecionado.
+          <p className="text-sm text-muted-foreground">
+            Lembre-se: Você pode utilizar a variável{" "}
+            <code className="text-violet-400 bg-slate-800">
+              {"{transcription}"}
+            </code>{" "}
+            no seu prompt para adicionar o conteudo da transcrição do seu video
+            selecionado.
           </p>
         </div>
+        
         <aside className="w-80">2</aside>
       </main>
     </div>
