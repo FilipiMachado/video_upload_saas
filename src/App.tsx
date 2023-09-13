@@ -72,7 +72,7 @@ export function App() {
               <Label htmlFor="transcription_prompt">Transcription prompt</Label>
               <Textarea
                 id="transcription_prompt"
-                className="min-h-20"
+                className="h-20 leading-relaxed resize-none"
                 placeholder="Inclua palavras-chave mencionadas no vídeo separadas por vírgula (,)"
               />
             </div>
@@ -83,8 +83,12 @@ export function App() {
             </Button>
           </form>
 
-          <form action="">
-            
+          <Separator />
+
+          <form className="space-y-6">
+            <div className="space-y-2">
+              <Label>Model</Label>
+            </div>
           </form>
         </aside>
       </main>
