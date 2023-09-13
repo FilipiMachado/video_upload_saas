@@ -1,4 +1,4 @@
-import { FileVideo, Github, Upload } from "lucide-react";
+import { FileVideo, Github, Upload, Wand2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 
 export function App() {
   return (
@@ -56,7 +57,7 @@ export function App() {
           </p>
         </div>
 
-        <aside className="w-80 border border-slate-800 space-y-6">
+        <aside className="w-80 border border-none space-y-6">
           <form action="space-y-6">
             <label
               htmlFor="video"
@@ -92,6 +93,21 @@ export function App() {
 
           <form className="space-y-6">
             <div className="space-y-2">
+              <Label>Prompt</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a prompt" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="title">Youtube title</SelectItem>
+                  <SelectItem value="description">
+                    Youtube description
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
               <Label>Model</Label>
               <Select disabled defaultValue="gpt 3.5">
                 <SelectTrigger>
@@ -108,13 +124,22 @@ export function App() {
 
             <Separator />
 
-            <div className="space-y-2">
+            <div className="space-y-4">
               <Label>Temperature</Label>
-              
-              <span className="block text-sm text-muted-foreground italic">
-                Valores mais altos tendem a deixar o resultado mais criativo e com possíveis erros (trocar o texto para "valores mais baixo tendem a deixar o texto...")
+              <Slider min={0} max={1} step={0.1} defaultValue={[0.5]} />
+              <span className="block text-sm text-muted-foreground italic leading-relaxed">
+                Valores mais altos tendem a deixar o resultado mais criativo e
+                com possíveis erros (trocar o texto para "valores mais baixo
+                tendem a deixar o texto...")
               </span>
             </div>
+
+            <Separator />
+
+            <Button className="w-full items-center" type="submit">
+              Run
+              <Wand2 className="w-4 h-4 ml-2" />
+            </Button>
           </form>
         </aside>
       </main>
