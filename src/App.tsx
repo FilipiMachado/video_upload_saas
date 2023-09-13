@@ -3,7 +3,14 @@ import { FileVideo, Github, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "./components/ui/label";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export function App() {
   return (
@@ -66,8 +73,6 @@ export function App() {
               className="sr-only"
             />
 
-            
-
             <div className="space-y-2 mt-2">
               <Label htmlFor="transcription_prompt">Transcription prompt</Label>
               <Textarea
@@ -79,7 +84,7 @@ export function App() {
 
             <Button type="submit" className="w-full">
               Upload video
-              <Upload className="w-4 h-4 ml-2"/>
+              <Upload className="w-4 h-4 ml-2" />
             </Button>
           </form>
 
@@ -88,6 +93,27 @@ export function App() {
           <form className="space-y-6">
             <div className="space-y-2">
               <Label>Model</Label>
+              <Select disabled defaultValue="gpt 3.5">
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="gpt 3.5">GPT 3.5-turbo 16k</SelectItem>
+                </SelectContent>
+              </Select>
+              <span className="block text-sm text-muted-foreground italic">
+                Você poderá customizar essa opção em breve
+              </span>
+            </div>
+
+            <Separator />
+
+            <div className="space-y-2">
+              <Label>Temperature</Label>
+              
+              <span className="block text-sm text-muted-foreground italic">
+                Valores mais altos tendem a deixar o resultado mais criativo e com possíveis erros (trocar o texto para "valores mais baixo tendem a deixar o texto...")
+              </span>
             </div>
           </form>
         </aside>
