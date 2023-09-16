@@ -42,7 +42,7 @@ export const VideoInputForm = (props: onVideoUploaded) => {
   }
 
   async function convertVideoToAudio(video: File) {
-    console.log("convert started.");
+    //console.log("convert started.");
 
     const ffmpeg = await getFFmpeg();
 
@@ -75,7 +75,7 @@ export const VideoInputForm = (props: onVideoUploaded) => {
       type: "audio/mpeg",
     });
 
-    console.log("Convert finished");
+    //console.log("Convert finished");
 
     return audioFile;
   }
@@ -106,17 +106,17 @@ export const VideoInputForm = (props: onVideoUploaded) => {
 
     setStatus("generating");
 
-    await api.post(`/videos/${videoId}/transcription`, {
-      prompt,
-    });
-
     setStatus("success");
+
+    /* await api.post(`/videos/${videoId}/transcription`, {
+      prompt,
+    }); */
 
     props.onVideoUploaded(videoId)
 
     console.log("Finished!");
 
-    console.log(audioFile, prompt);
+    //console.log(audioFile, prompt);
 
     console.log(response.data);
   }
