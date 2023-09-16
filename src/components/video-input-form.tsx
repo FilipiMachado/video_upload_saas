@@ -19,7 +19,11 @@ const statusMessages = {
   success: "Success!",
 };
 
-export const VideoInputForm = () => {
+interface onVideoUploaded {
+  onVideoUploaded: (id: string) => void;
+}
+
+export const VideoInputForm = (props: onVideoUploaded) => {
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [status, setStatus] = useState<Status>("waiting");
 
@@ -107,6 +111,8 @@ export const VideoInputForm = () => {
     });
 
     setStatus("success");
+
+    props.onVideoUploaded(videoId)
 
     console.log("Finished!");
 
